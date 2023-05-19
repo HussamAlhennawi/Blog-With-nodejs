@@ -1,21 +1,35 @@
 <nav>
-    <div class="site-title">
-        <a href="/"><h3 style=" margin-bottom: 0px; ">Blog With node.js &#129304</h3></a>
+    <div class="grid grid-cols-4 bg-primary opacity-70 font-primary px-3 py-2">
+
+        <div class="site-title col-span-1 text-3xl font-bold text-gray-700 ms-2 mt-0.5">
+            <a href="/">
+                <h1 class="inline-block">Blog With node.js</h1>
+                <span> &#129304</span>
+            </a>
+        </div>
+
+        <div class="col-span-2 text-xl font-bold">
+            <ul class="flex justify-center p-2">
+                <li class="px-3"><a href="/">Blogs</a></li>
+                <li class="px-3"><a href="/blogs/create">New Blog</a></li>
+                <li class="px-3"><a href="/about">About</a></li>
+            </ul>
+        </div>
+
+        <div class="col-span-1 flex justify-end">
+            <% if (user) { %>
+                <form action="/auth/logout" method="POST" class="mb-0">
+                    <button class="px-3 pt-3 pb-2 mx-1 inline-block rounded-full uppercase text-base font-bold hover:bg-rose-400 text-white"
+                            type="submit">Logout
+                    </button>
+                </form>
+            <% } else { %>
+                <a class="px-3 pt-3 pb-1 mx-1 inline-block rounded-full uppercase text-base font-bold hover:bg-rose-400 text-white"
+                   href="/auth/signup">Signup</a>
+                <a class="px-3 pt-3 pb-1 mx-1 inline-block rounded-full uppercase text-base font-bold hover:bg-rose-400 text-white"
+                   href="/auth/login">Login</a>
+            <% } %>
+        </div>
+
     </div>
-    <ul>
-        <li><a href="/">Blogs</a></li>
-        <li><a href="/blogs/create">New Blog</a></li>
-        <li><a href="/about">About</a></li>
-    </ul>
-    <% if (user) { %>
-        <p>Hellooo <%= user.email %></p>
-        <form action="/auth/logout" method="POST">
-            <button type="submit">Logout</button>
-        </form>
-    <% } else { %>
-        <a href="/auth/signup">Signup</a>
-        <a href="/auth/login">Login</a>
-    <% } %>
-
-
 </nav>
