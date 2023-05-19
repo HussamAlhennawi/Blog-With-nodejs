@@ -1,9 +1,10 @@
 const express = require('express')
 const blogController = require('../controllers/blogController')
+const auth = require('../middlewares/authMiddleware')
 
 const router = express.Router();
 
-router
+router.use(auth)
     .get('/', blogController.index)
     .get('/create', blogController.create)
     .post('/', blogController.store)
