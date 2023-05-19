@@ -7,4 +7,15 @@
         <li><a href="/blogs/create">New Blog</a></li>
         <li><a href="/about">About</a></li>
     </ul>
+    <% if (user) { %>
+        <p>Hellooo <%= user.email %></p>
+        <form action="/auth/logout" method="POST">
+            <button type="submit">Logout</button>
+        </form>
+    <% } else { %>
+        <a href="/auth/signup">Signup</a>
+        <a href="/auth/login">Login</a>
+    <% } %>
+
+
 </nav>
