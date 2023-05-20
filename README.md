@@ -14,7 +14,7 @@ Blog With node.js is a simple blog system build using:
 - CRUD operations on Blog
 
 ## Instructions
-after cloning the project you may use these command to prepare your .env file:
+after cloning the project you may use these command to install dependencies and prepare your .env file:
 > These command will make .env file and generate a secret key to use it when sign & verify JWT
 ```
 npm i
