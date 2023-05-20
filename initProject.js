@@ -13,7 +13,6 @@ fs.readFile('.env.test', 'utf8', function (err,data) {
     );
 });
 
-
 const randomString = (length) => {
     const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_+={}[]<>?/|';
 
