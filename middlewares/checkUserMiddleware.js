@@ -12,6 +12,7 @@ const checkUser = async (req, res, next) => {
                 if (user) {
                     res.locals.user = user;
                 } else {
+                    console.error('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! JWT CLEARED FROM USER NOT FOUND !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
                     res.cookie('jwt', '', { maxAge: 0 });
                     res.locals.user = null;
                 }
@@ -20,6 +21,7 @@ const checkUser = async (req, res, next) => {
                 console.log(err)
             }
         } catch (err) {
+            console.error('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! JWT CLEARED FROM DECODED ERROR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
             res.cookie('jwt', '', { maxAge: 0 });
             res.locals.user = null;
             next();

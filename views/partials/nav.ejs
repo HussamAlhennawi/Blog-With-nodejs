@@ -1,21 +1,59 @@
-<nav>
-    <div class="site-title">
-        <a href="/"><h3 style=" margin-bottom: 0px; ">Blog With node.js &#129304</h3></a>
+<nav class="fixed top-0 z-10 w-full right-0">
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 bg-primary font-primary p-2">
+
+        <div class="col-span-1 lg:col-span-1 text-gray-700 2xl:flex 2xl:justify-end">
+            <a class="inline-block lg:mt-2" href="/">
+                <svg class="w-7 h-7 inline-block pb-1 font-bold" xmlns="http://www.w3.org/2000/svg" fill="none"
+                     viewBox="0 0 24 24" stroke-width="2.3" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"/>
+                </svg>
+                <h1 class="hidden md:inline-block md:text-xl lg:text-2xl font-bold xl:pb-2">Blog With node.js</h1>
+            </a>
+        </div>
+
+        <div class="col-span-1 lg:hidden flex justify-end pt-0.5" id="menuIcon">
+            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                 stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5"/>
+            </svg>
+        </div>
+
+        <div class="col-span-2 lg:col-span-3 lg:grid lg:grid-cols-3 hidden text-center" id="menu">
+            <div class="lg:col-span-2 lg:flex justify-center items-center lg:text-xl font-bold text-gray-700">
+                <a class="block mx-2" href="/">Blogs</a>
+                <a class="block mx-2" href="/blogs/create">New Blog</a>
+                <a class="block mx-2" href="/about">About</a>
+            </div>
+
+            <div class="lg:col-span-1 lg:flex lg:justify-end 2xl:justify-start text-base">
+                <% if (user) { %>
+                    <form action="/auth/logout" method="POST" class="mb-0">
+                        <button class="px-3 pt-3 pb-2 mx-1 inline-block rounded-full uppercase text-base font-bold hover:bg-rose-400 text-white"
+                                type="submit">Logout
+                        </button>
+                    </form>
+                <% } else { %>
+                    <a class="px-3 pt-2.5 lg:pt-3 pb-1 mx-1 inline-block rounded-full uppercase text-base font-bold hover:bg-rose-400 text-white"
+                       href="/auth/signup">Signup</a>
+                    <a class="px-3 pt-2.5 lg:pt-3 pb-1 mx-1 inline-block rounded-full uppercase text-base font-bold hover:bg-rose-400 text-white"
+                       href="/auth/login">Login</a>
+                <% } %>
+            </div>
+        </div>
+
     </div>
-    <ul>
-        <li><a href="/">Blogs</a></li>
-        <li><a href="/blogs/create">New Blog</a></li>
-        <li><a href="/about">About</a></li>
-    </ul>
-    <% if (user) { %>
-        <p>Hellooo <%= user.email %></p>
-        <form action="/auth/logout" method="POST">
-            <button type="submit">Logout</button>
-        </form>
-    <% } else { %>
-        <a href="/auth/signup">Signup</a>
-        <a href="/auth/login">Login</a>
-    <% } %>
-
-
 </nav>
+
+<script>
+    const menuIcon = document.querySelector('#menuIcon')
+    const menu = document.querySelector('#menu')
+    menuIcon.addEventListener('click', () => {
+        menu.classList.contains('hidden')
+            ? menu.classList.remove('hidden')
+            : menu.classList.add('hidden')
+    })
+
+</script>

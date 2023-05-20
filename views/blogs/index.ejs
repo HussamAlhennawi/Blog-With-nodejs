@@ -1,37 +1,31 @@
-<html lang="en">
-<%- include('../partials/head') %>
-<body>
+<%- include('../partials/upper') %>
 
-<%- include('../partials/nav') %>
-
-<div class="blogs content">
-    <h2>All Blogs</h2>
-
+<div class="cards p-10 mt-20">
     <% if (blogs.length > 0) { %>
         <% blogs.forEach(blog => { %>
-
-<!--            <p class="text"><%= blog.id %></p>-->
-            <h3 class="title title-index"><a class="a-title" href="/blogs/<%= blog.id %>"><%= blog.title %></a></h3>
-            <button class="edit-button"><a href="/blogs/edit/<%= blog.id%>">Edit</a></button>
-            <div class="delete-div">
-                <form action="/blogs/<%= blog.id %>?_method=DELETE" method="post">
-                    <button type="submit">Delete</button>
-                </form>
+            <div class="card my-10 flex">
+                <div class="">
+                    <div class="text-2xl font-bold border-b-2 border-gray-300"><a
+                                href="/blogs/<%= blog.id %>"><%= blog.title %></a></div>
+                    <div class="text-xl font-light"><%= blog.body %></div>
+                </div>
+                <div class="methods flex">
+                    <div>
+                        <a class="px-3 pt-1.5 pb-1.5 mx-1 inline-block rounded-full uppercase text-base font-bold text-yellow-300 hover:bg-yellow-300 hover:text-white"
+                           href="/blogs/<%= blog.id %>/edit">Edit</a>
+                    </div>
+                    <form action="/blogs/<%= blog.id %>?_method=DELETE" method="post">
+                        <button class="px-3 pt-1.5 pb-1.5 mx-1 inline-block rounded-full uppercase text-base font-bold text-rose-700 hover:bg-rose-700 hover:text-white"
+                                type="submit">Delete
+                        </button>
+                    </form>
+                </div>
             </div>
-
-            <p class="text"><%= blog.text %></p>
-
-
-
-
-            <hr>
         <% }) %>
     <% } else { %>
-        <p>There are no blogs to display...</p>
+        <p class="text-2xl font-bold">There are no blogs to display ...</p>
     <% } %>
-
 </div>
 
-<%- include("../partials/footer.ejs") %>
-</body>
-</html>
+
+<%- include('../partials/lower') %>
