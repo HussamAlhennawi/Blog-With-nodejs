@@ -1,12 +1,13 @@
 <%- include('../partials/upper') %>
 
 <div class="cards p-10 mt-20">
-            <div class="card my-10 flex">
+            <div class="card my-10 flex justify-between">
                 <div class="">
                     <div class="text-2xl font-bold border-b-2 border-gray-300"><a
                                 href="/blogs/<%= blog.id %>"><%= blog.title %></a></div>
                     <div class="text-xl font-light"><%= blog.body %></div>
                 </div>
+                <% if (blog.user.id === user.id) { %>
                 <div class="methods flex">
                     <div>
                         <a class="px-3 pt-1.5 pb-1.5 mx-1 inline-block rounded-full uppercase text-base font-bold text-yellow-300 hover:bg-yellow-300 hover:text-white"
@@ -18,6 +19,7 @@
                         </button>
                     </form>
                 </div>
+                <% } %>
             </div>
 </div>
 
