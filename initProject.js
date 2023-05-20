@@ -6,7 +6,7 @@ fs.readFile('.env.test', 'utf8', function (err,data) {
     if (err) console.log(err);
 
     fs.writeFile(
-        '.env.test',
+        '.env',
         data.replace("JWT_SECRET_KEY=", 'JWT_SECRET_KEY="'+ randomString(90) +'"'),
         'utf8',
         (err) => {if (err) console.log(err)}
