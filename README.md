@@ -20,8 +20,14 @@ after cloning the project you may use these command to install dependencies and 
 npm i
 node initProject.js
 ```
-> Then make sure to modify DB_URI variable in .env with your credentials (username & password) and (cluster name & database name)
-
+> Before run the command below make sure to modify DB_URI variable in .env with your credentials (username & password) and (cluster name & database name)
+```
+node app
+```
+> Then open you browser:
+```
+http://localhost:8000
+```
 
 ## License
 This Project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
