@@ -1,7 +1,6 @@
 <h1 align="center">Blog With node.js</h1>
 
-<br><br><br>
-
+<br><br>
 
 ## About The Project
 Blog With node.js is a simple blog system build using:
@@ -24,5 +23,5 @@ node initProject.js
 ## License
 This Project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-## Thanks
-Finally Thanks to **[NetNinja](https://www.youtube.com/@NetNinja)** Tutorials which helps me to learn node.js and build this project.
+## 
+Finally Thanks to **[Freecodecamp](https://www.youtube.com/c/Freecodecamp)** & **[NetNinja](https://www.youtube.com/@NetNinja)** tutorials which help me to learn node.js and build this project.
