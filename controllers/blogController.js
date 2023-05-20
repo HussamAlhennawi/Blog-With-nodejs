@@ -10,40 +10,34 @@ let ErrorsHandler = (err) => {
     return errorsMessages;
 }
 
-const index = (req, res) => {
-    Blog.find().sort({ createdAt: -1 })
-        .then((result) => {
-            res.render('./blogs/index', {
-                title: 'Blogs',
-                blogs: result
-            })
-        })
-        .catch((err) => console.log(err))
+const index = async (req, res) => {
+    let blogs = await Blog.find().populate('user').sort({ createdAt: -1 })
+    res.render('./blogs/index', { title: 'Blogs', blogs })
 }
 
 const create = (req, res) => {
     res.render('./blogs/create', {title: 'New Blog'});
 }
 
-const store = (req, res) => {
+const store = async (req, res) => {
     let { title, body } = req.body
-    const blog = new Blog({ title ,body });
-    blog.save()
-        .then((result) => res.redirect('/blogs'))
-        .catch((err) => {
-            let errors = ErrorsHandler(err);
-            res.locals.errors = errors
-            let oldValues = {}
-            oldValues.title = title
-            oldValues.body = body
-            res.render('./blogs/create', {title: 'New Blog', errors, oldValues})
-            // res.status(422).redirect('back')
-            console.log(errors)
-        })
+
+    try {
+        let blog = await Blog.create({ title ,body, user: res.locals.user })
+        res.redirect('/blogs')
+    } catch (err) {
+        let errors = ErrorsHandler(err);
+        res.locals.errors = errors
+        let oldValues = {}
+        oldValues.title = title
+        oldValues.body = body
+        res.render('./blogs/create', {title: 'New Blog', errors, oldValues})
+    }
 }
 
 const show = (req, res) => {
-    Blog.findById(req.params['id'])
+
+    Blog.findById(req.params['id']).populate('user')
         .then((result) => {
             res.render('./blogs/show', {
                 title: 'Blog',
@@ -97,18 +91,3 @@ const destroy = (req, res) => {
 module.exports = {
     index, create, store, show, edit, update, destroy
 }
-// Blog.findByIdAndUpdate(req.params['id'], {
-//     title, body
-// })
-//     .then((result) => {
-//         res.redirect('/blogs/' + result.id)
-//     })
-//     .catch((err) => {
-//         let errors = ErrorsHandler(err);
-//         res.locals.errors = errors
-//         let oldValues = {}
-//         oldValues.title = title;
-//         oldValues.body = body
-//         res.render('./blogs/edit', {title: 'Edit Blog', errors, oldValues})
-//         console.log(err)
-//     })
