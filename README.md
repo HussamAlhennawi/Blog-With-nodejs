@@ -7,6 +7,7 @@ Blog With node.js is a simple blog system build using:
 - Back-end: node.js & express.js
 - Database: MongoDB 
 - View engine: ejs
+- CSS style: Tailwind
 
 ## Features
 - Authentication using JWT
