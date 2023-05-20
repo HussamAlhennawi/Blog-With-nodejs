@@ -19,6 +19,8 @@ after cloning the project you may use these command to prepare your .env file:
 npm i
 node initProject.js
 ```
+> Then make sure to modify DB_URI variable in .env with your credentials (username & password) and (cluster name & database name)
+
 
 ## License
 This Project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
