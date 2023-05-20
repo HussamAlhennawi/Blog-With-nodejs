@@ -9,7 +9,7 @@ router.use(auth)
     .get('/create', blogController.create)
     .post('/', blogController.store)
     .get('/:id', blogController.show)
-    .get('/edit/:id', blogController.edit)
+    .get('/:id/edit', blogController.edit)
     .put('/:id', blogController.update)
     .delete('/:id', blogController.destroy)
 
