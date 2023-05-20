@@ -7,7 +7,7 @@
     "build-css": "npx tailwindcss -i ./src/styles.css -o ./public/css/tailwind-styles.css --watch"
   },
   "author": "Hussam Alhennawi",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "cookie-parser": "^1.4.6",
