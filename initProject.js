@@ -2,7 +2,7 @@ const fs = require('fs');
 
 fs.copyFileSync('.env.example', '.env')
 
-fs.readFile('.env.test', 'utf8', function (err,data) {
+fs.readFile('.env', 'utf8', function (err,data) {
     if (err) console.log(err);
 
     fs.writeFile(
