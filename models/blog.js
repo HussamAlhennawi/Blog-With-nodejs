@@ -11,6 +11,11 @@ const blogSchema = new Schema({
         type: String,
         required: [true, 'The body field is required'],
         minLength: [100, 'The body must be at least 100 characters']
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
     }
 },
     {
