@@ -30,7 +30,7 @@ http://localhost:8000
 ```
 
 ## Feedback
-I will be happy to hear from you, if you have any suggestion or feedback please share it with me on my **[E-mail](mailto:alhennawi.hussam@gmail.com).
+I will be happy to hear from you, if you have any suggestion or feedback please share it with me on my **[E-mail](mailto:alhennawi.hussam@gmail.com)**.
 
 ## License
 This Project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
